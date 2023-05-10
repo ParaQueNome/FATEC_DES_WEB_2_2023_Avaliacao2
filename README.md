@@ -14,3 +14,6 @@ O metodo insert(), vai inserir os dados cadastrais no banco
 Metodo read(), lê os alunos cadastrados e mostra na pagina
 Metodo update(), modifica algum dado que o usuario escolher
 Metodo delete(), vai apagar os dados de um determinado aluno
+
+
+## Nota: Os metodos possuem mais de uma função, portanto, não está totalmente correto com relacao as boas praticas de programação. Atualizações Podem vir
