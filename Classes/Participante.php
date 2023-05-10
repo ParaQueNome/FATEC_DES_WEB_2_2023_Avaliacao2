@@ -42,26 +42,60 @@ class Participante{
     public function read(){
         $sql = "SELECT nome, cpf, telefone, origem_publica FROM participante";
         $result = $this->connect->getConnection()->query($sql);
-
-        if ($result->num_rows > 0) {
-            if (!$result) {
-                die($this->connect->getConnection()->error);
-            }else{
+    
+        if ($result) {
+            if ($result->num_rows > 0) {
+                echo "<table><tr><th>Name</th><th>CPF</th><th>Telefone</th><th>Escolaridade</th></tr>";
                 while($row = $result->fetch_assoc()){
                     $origem_publica = $row['origem_publica'] == 1 ? 'Escola Pública' : 'Escola Particular';
                     echo "<tr><td>".$row['nome']."</td><td>".$row['cpf']."</td><td>".$row['telefone']."</td><td>".$origem_publica."</td></tr>";
                 }
                 echo "</table>";
+            } else {
+                echo "Nenhum resultado encontrado.";
             }
-            echo "<table><tr><th>Name</th><th>CPF</th><th>Telefone</th><th>Escolaridade</th></tr>";
-           
         } else {
-            echo "Nenhum resultado encontrado.";
+            die($this->connect->getConnection()->error);
         }
-        
-    
+    }
+    public function update($nome, $cpf, $telefone,$origem){
+        $sql = "SELECT cpf FROM participante WHERE cpf = '$cpf' ";
+        $result = $this->connect->getConnection()->query($sql);
+       
+        if($result->num_rows > 0){
+            $update_nome = "UPDATE participante SET nome = '$nome' WHERE cpf = '$cpf'";
+            $update_telefone = "UPDATE participante SET telefone = '$telefone' WHERE cpf = '$cpf'";
+            $update_origem = "UPDATE participante SET origem_publica = $origem WHERE cpf = '$cpf'";
+            if($this->connect->getConnection()->query($update_nome)=== TRUE){
+                echo "Dados inseridos";
+            }
+            if($this->connect->getConnection()->query($update_telefone)=== TRUE){
+                echo "Dados inseridos";
+            }
+            if($this->connect->getConnection()->query($update_origem)=== TRUE){
+                echo "Dados inseridos";
+            }
+              
 
-}
+            }else{
+                echo "CPF não cadastrado!!";
+            }
+    }
+    public function delete($cpf){
+        $sql = "SELECT cpf FROM participante WHERE cpf = '$cpf' ";
+
+        $result = $this->connect->getConnection()->query($sql);
+
+        if($result->num_rows > 0){
+            $delete = "DELETE FROM participante WHERE cpf = '$cpf'";
+            if($this->connect->getConnection()->query($delete) === TRUE){
+                echo "Dados Deletados com Sucesso";
+
+            }else
+            echo "CPF nao Encontrado!";
+        }
+    }
+    
     function __destruct(){
         $this->connect->closeConnection();
     }

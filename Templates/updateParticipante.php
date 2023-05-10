@@ -11,19 +11,21 @@
 </head>
 <body>
     <div class="wrapper">
-        <h2>Cadastro para Vestibular</h2>
-        <p>Para realizar o cadastro, favor inserir as informações a baixo:</p>
-        <form action="formulario_cadastro.php" method="post">
+        <h2>Altera Dados</h2>
+        <p>Informe os dados abaixo para alterar (O CPF uma vez cadastrado não é possível alterar )</p>
+        <form action="update.php" method="post">
+        <div class="form-group">
+            <p> Insira o CPF do participante que deseja alterar os dados:</p>
+                <label>CPF</label>
+                <input type="text" name="cpf" class="form-control" value="">
+                <span class="help-block"></span>
+            </div> 
             <div class="form-group">
                 <label>Nome completo</label>
                 <input type="text" name="name" class="form-control" value="">
                 <span class="help-block"></span>
             </div>    
-            <div class="form-group">
-                <label>CPF</label>
-                <input type="text" name="cpf" class="form-control" value="">
-                <span class="help-block"></span>
-            </div>
+        
             <div class="form-group">
                 <label>Telefone</label>
                 <input type="text" name="telefone" class="form-control" value="">
@@ -34,7 +36,7 @@
                 <input type="checkbox" name="checkbox" checked="false" />
             <div class="form-group">
                 <br>
-                <input type="submit" class="btn btn-primary" value="Cadastrar">
+                <input type="submit" class="btn btn-primary" value="Alterar">
             </div>
         </form>
     </div>    

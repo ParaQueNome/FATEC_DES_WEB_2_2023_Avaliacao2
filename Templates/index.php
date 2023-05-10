@@ -14,13 +14,15 @@
     <div class="page-header">
         <h1>Olá, Pessoa! <b>
         <br>
-        </b>Bem vindo a Biblioteca</h1>
+        </b>Bem vindo ao sistema de Vestibulandos</h1>
     </div>
 
         <a href="cadastro.php" class="btn btn-primary">Cadastrar Participante</a>
         <a href="mostrar_participante.php" class="btn btn-primary">Mostrar candidatos</a>
+        <a href="updateParticipante.php" class="btn btn-primary">Alterar cadastro</a>
+        <a href="deleteParticipante.php" class="btn btn-danger">Remover Vestibulando</a>
 
-        <a href="logout.php" class="btn btn-danger">Sair da conta</a>
+        
 
 </body>
 </html>
